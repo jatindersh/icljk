@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICL</title>
+  <script>
+    function refreshPage() {
+      if (confirm("Are you sure you want to refresh?")) {
+        location.reload();
+      }
+    }
+  </script>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      height: 100vh;
+      margin: 0;
+    }
+    header {
+      background-color: #fff;
+      color: black; /* Set text color to black for visibility */
+      padding: 5px;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      gap: 5px;
+      align-items: center;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 5px;
+      width: 100%;
+      text-align: center;
+    }
+   #pdfWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center; /* Center-aligns the content */
+  align-items: flex-start; /* Align from the top */
+  height: calc(100vh - 120px); /* Adjust for header and footer */
+  overflow-y: auto;
+  width: 100%;
+  margin: 0; /* Removes any margin */
+}
+
+#pdfContainer {
+  width: auto; /* Adjust based on the PDF's width */
+  margin: 2px; /* Removes white margin */
+  padding: 0; /* Removes any padding */
+}
+
+    canvas {
+      display: block;
+      margin: 0;
+      margin-bottom: 5px; /* Spacing between pages */
+    }
+    button {
+      padding: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    /* Ensure buttons in the header are aligned properly */
+    header .buttons-container {
+      display: flex;
+      justify-content: flex-start; /* Align to the left */
+      gap: 5px;
+      align-items: center;
+      width: 100%;
+    }
+    header input[type="button"] {
+      padding: 5px 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="buttons-container">
+      <img src="images/LOGO.png" style="width: 20%;"/>
+      <a href="books.html"><input type="button" value="Home"></a>
+      <div class="zoom-buttons">
+        <button id="zoomIn">Zoom In</button>
+        <button id="zoomOut">Zoom Out</button>
+      </div>
+      <input type="button" value="Refresh Webpage" onclick="refreshPage()"/>
+    </div>
+  </header>
+  <hr>
+  <div id="pdfWrapper">
+    <div id="pdfContainer"></div>
+  </div>
+  <footer>
+    <p>Copyright @ ICL
+    <script language="javascript" type="text/javascript">
+      var today = new Date() 
+      var year = today.getFullYear()
+      document.write(year)
+    </script>
+    </p>
+  </footer>
+  <script src="js/pdf.min.js"></script>
+  <script>
+    var url = 'books/modern-cpp-tutorial.pdf'; // URL of your PDF file
+
+    var pdfjsLib = window['pdfjs-dist/build/pdf'];
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'js/pdf.worker.min.js';
+
+    var loadingTask = pdfjsLib.getDocument(url);
+    var pdfDoc = null;
+    var scale = 1.5; // Initial scale
+
+    function renderPage(page, scale, container) {
+      var viewport = page.getViewport({ scale: scale });
+
+      var canvas = document.createElement('canvas');
+      var context = canvas.getContext('2d');
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+
+      var renderContext = {
+        canvasContext: context,
+        viewport: viewport
+      };
+
+      var renderTask = page.render(renderContext);
+      renderTask.promise.then(function () {
+        console.log('Page rendered');
+      });
+
+      container.appendChild(canvas);
+    }
+
+    function renderPDF(pdfDoc, scale) {
+      var container = document.getElementById('pdfContainer');
+      container.innerHTML = ''; // Clear container before rendering
+      for (var pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
+        pdfDoc.getPage(pageNum).then(function(page) {
+          renderPage(page, scale, container);
+        });
+      }
+    }
+
+    loadingTask.promise.then(function(pdf) {
+      pdfDoc = pdf;
+      renderPDF(pdfDoc, scale);
+    }, function (reason) {
+      console.error(reason);
+    });
+
+    document.getElementById('zoomIn').addEventListener('click', function() {
+      scale += 0.5;
+      renderPDF(pdfDoc, scale);
+    });
+
+    document.getElementById('zoomOut').addEventListener('click', function() {
+      scale = Math.max(0.5, scale - 0.5); // Prevent scale from going below 0.5
+      renderPDF(pdfDoc, scale);
+    });
+  </script>
+</body>
+</html>

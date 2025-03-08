@@ -7,7 +7,7 @@
    <link rel="icon"  type="image/png"   href="images/JKP.png">
   <!-- Java Script for Marquee -->
 <script src="js/jquery.min.js"></script>
-<script src="js/jquery.marquee.min.js?v=4"></script>
+	<script src="js/jquery.marquee.min.js?v=4"></script>
    <style>
         body {
             margin: 0;
@@ -42,10 +42,9 @@
             background-color: #f9f9f9;
             padding: 20px;
         }
-
-        footer {
-            background-color: white
-            color: white;
+ footer {
+            background-color: white;
+            color: black;
         }
 
         .container {
@@ -162,13 +161,34 @@ header('Location: http://icljk.com/m/index.html');
   		border-radius: 30px; 
   		border-spacing: 0;
 	}
-</style>
+	</style>
  <style>
         .styled-hr {
             border: 0;
             height: 2px;
             background: linear-gradient(90deg, red, blue);
             margin: 20px 0;
+        }
+    </style>
+      <style>
+       .photo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .photo img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+		  .justified-box {
+            width: 80%; /* Adjust width as needed */
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            text-align: justify;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional shadow for a subtle effect */
         }
     </style>
 </head>
@@ -190,7 +210,7 @@ Read with Notification of the Govt. of India No. GSR 288(E) dated 31.5.1991. CRN
     <nav>
         <div class="container">
           
-        <a href="home.html" class="button">Home</a>
+        <a href="index.html" class="button">Home</a>
         <a href="about.html" class="button">About</a>
         <a href="services.html" class="button">Services</a>
 			<a href="contact.html" class="button">Contact</a>
@@ -203,12 +223,13 @@ Read with Notification of the Govt. of India No. GSR 288(E) dated 31.5.1991. CRN
       <td colspan="3"></td>
     </tr>
     <tr>
-      <td>Row 2, Column 1</td>
-      <td><div style="background-color:#bbb;">
-    <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3368.804740208801!2d75.51043231497513!3d32.39759551054183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391c7013c93a85cd%3A0xe7f0646c5989dd0e!2sICL%20Computers!5e0!3m2!1sen!2sin!4v1625658927496!5m2!1sen!2sin" width="450" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe></p>
-   
-   </div></td>
-      <td>Row 2, Column 3</td>
+      <td><p> <img src="images/LAPTOP.jpg" alt="" width="100"></p></td>
+      <td>  <div class="photo">
+            <img src="images/parents.jpg" alt="My Parents">
+        </div>
+        <p class="justified-box">My parents are the foundation of my life, guiding me with their unwavering love, wisdom, and support. They have instilled in me the values of kindness, perseverance, and integrity, shaping me into the person I am today. Their sacrifices and hard work have been the driving force behind my success, and their belief in me has given me the strength to chase my dreams. I am forever grateful for their love, and this space is a small tribute to their endless dedication and selflessness.My parents are my greatest source of inspiration, love, and strength. Their unwavering support and endless sacrifices have shaped my journey, teaching me the true meaning of dedication, kindness, and resilience. Through their hard work and unconditional love, they have given me the foundation to chase my dreams and the courage to overcome any obstacle. Their guidance has been a beacon of light in my life, reminding me to stay humble, work hard, and always be grateful. Everything I am today is a reflection of their love and values, and I will forever cherish and honor them in all that I do</p></td>
+      <td> 
+		  <p> <img src="images/ICL1.png" alt="" width="100"></p> </td>
     </tr>
     <tr>
        <td colspan="3"> 
@@ -234,7 +255,7 @@ Read with Notification of the Govt. of India No. GSR 288(E) dated 31.5.1991. CRN
 </div>
  
     <p>Copyright @ ICL
-<script language="javascript">
+<script>
 	var today = new Date() 
 	var year = today.getFullYear()
 	document.write(year)
@@ -379,6 +400,5 @@ Read with Notification of the Govt. of India No. GSR 288(E) dated 31.5.1991. CRN
     })
 });
 </script>
-	
 </body>
 </html>

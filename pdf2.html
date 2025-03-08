@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF.js Viewer with Header, Footer, and Left-Side Zoom Buttons</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    header, footer {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      text-align: center;
+    }
+    #pdfWrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: calc(100vh - 120px); /* Adjust for header and footer */
+      overflow-y: auto;
+      width: 100%;
+    }
+    .zoom-buttons {
+      position: fixed;
+      left: 10px; /* Position on the left side */
+      top: 50%; /* Center vertically */
+      transform: translateY(-50%); /* Adjust for vertical centering */
+      background-color: white;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    #pdfContainer {
+      width: 90%;
+      margin-top: 10px;
+    }
+    canvas {
+      display: block;
+      margin: auto;
+      margin-bottom: 20px; /* Spacing between pages */
+    }
+    button {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My PDF Viewer</h1>
+  </header>
+  <div id="pdfWrapper">
+    <div class="zoom-buttons">
+      <button id="zoomIn">Zoom In</button>
+      <button id="zoomOut">Zoom Out</button>
+    </div>
+    <div id="pdfContainer"></div>
+  </div>
+  <footer>
+    <p>&copy; 2025 My Website</p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+  <script>
+    var url = 'path/to/your/file.pdf'; // URL of your PDF file
+
+    var pdfjsLib = window['pdfjs-dist/build/pdf'];
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js';
+
+    var loadingTask = pdfjsLib.getDocument(url);
+    var pdfDoc = null;
+    var scale = 1.5; // Initial scale
+
+    function renderPage(page, scale, container) {
+      var viewport = page.getViewport({ scale: scale });
+
+      var canvas = document.createElement('canvas');
+      var context = canvas.getContext('2d');
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+
+      var renderContext = {
+        canvasContext: context,
+        viewport: viewport
+      };
+
+      var renderTask = page.render(renderContext);
+      renderTask.promise.then(function () {
+        console.log('Page rendered');
+      });
+
+      container.appendChild(canvas);
+    }
+
+    function renderPDF(pdfDoc, scale) {
+      var container = document.getElementById('pdfContainer');
+      container.innerHTML = ''; // Clear container before rendering
+      for (var pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
+        pdfDoc.getPage(pageNum).then(function(page) {
+          renderPage(page, scale, container);
+        });
+      }
+    }
+
+    loadingTask.promise.then(function(pdf) {
+      pdfDoc = pdf;
+      renderPDF(pdfDoc, scale);
+    }, function (reason) {
+      console.error(reason);
+    });
+
+    document.getElementById('zoomIn').addEventListener('click', function() {
+      scale += 0.5;
+      renderPDF(pdfDoc, scale);
+    });
+
+    document.getElementById('zoomOut').addEventListener('click', function() {
+      scale = Math.max(0.5, scale - 0.5); // Prevent scale from going below 0.5
+      renderPDF(pdfDoc, scale);
+    });
+  </script>
+</body>
+</html>

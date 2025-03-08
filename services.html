@@ -7,7 +7,7 @@
    <link rel="icon"  type="image/png"   href="images/JKP.png">
   <!-- Java Script for Marquee -->
 <script src="js/jquery.min.js"></script>
-<script src="js/jquery.marquee.min.js?v=4"></script>
+	<script src="js/jquery.marquee.min.js?v=4"></script>
    <style>
         body {
             margin: 0;
@@ -43,9 +43,9 @@
             padding: 20px;
         }
 
-        footer {
-            background-color: white
-            color: white;
+         footer {
+            background-color: white;
+            color: black;
         }
 
         .container {
@@ -89,7 +89,7 @@
     </style>
   <style>
         table {
-			background-color: #333;
+			background-color: black;
             width: 98%; /* Set table width to 98% */
             border-collapse: separate; /* Use separate border model to allow radius */
             border-spacing: 0; /* Remove spacing between cells */
@@ -162,7 +162,7 @@ header('Location: http://icljk.com/m/index.html');
   		border-radius: 30px; 
   		border-spacing: 0;
 	}
-</style>
+	</style>
  <style>
         .styled-hr {
             border: 0;
@@ -170,6 +170,40 @@ header('Location: http://icljk.com/m/index.html');
             background: linear-gradient(90deg, red, blue);
             margin: 20px 0;
         }
+    </style>
+     <style>
+      
+   .gradient-btn {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    background: linear-gradient(45deg, #FF9933, #FFFFFF, #138808);
+    background-size: 300% 300%;
+    color: #000080; /* Ashoka Chakra color */
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: gradientMove 5s infinite alternate;
+    border: 2px solid #000080; /* Optional: Ashoka Chakra border */
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.gradient-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+		 .links {
+            margin-bottom: 20px;
+		 }
     </style>
 </head>
 <body>
@@ -190,7 +224,7 @@ Read with Notification of the Govt. of India No. GSR 288(E) dated 31.5.1991. CRN
     <nav>
         <div class="container">
           
-        <a href="home.html" class="button">Home</a>
+        <a href="index.html" class="button">Home</a>
         <a href="about.html" class="button">About</a>
         <a href="services.html" class="button">Services</a>
 			<a href="contact.html" class="button">Contact</a>
@@ -198,23 +232,36 @@ Read with Notification of the Govt. of India No. GSR 288(E) dated 31.5.1991. CRN
 	</nav>
  <main>
         <div class="container">
+			<div class="gradient-btn">Transforming Ideas into Digital Reality!</div> 
+			<br>
+			<hr>
   <table>
     <tr>
-      <td colspan="3"></td>
+      <td> </td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
-      <td>Row 2, Column 1</td>
-      <td><div style="background-color:#bbb;">
-    <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3368.804740208801!2d75.51043231497513!3d32.39759551054183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391c7013c93a85cd%3A0xe7f0646c5989dd0e!2sICL%20Computers!5e0!3m2!1sen!2sin!4v1625658927496!5m2!1sen!2sin" width="450" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe></p>
-   
-   </div></td>
-      <td>Row 2, Column 3</td>
+      <td> </td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
-       <td colspan="3"> 
-	</td>
+      <td> <div class="links"><a href="books.html" class="gradient-btn" target="_self">Books</a></div></td>
+      <td> </td>
+		<td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td></td>
+      <td></td>
+    </tr>
       
-    </tr>   
   </table>
   </div>
     </main>
@@ -234,7 +281,7 @@ Read with Notification of the Govt. of India No. GSR 288(E) dated 31.5.1991. CRN
 </div>
  
     <p>Copyright @ ICL
-<script language="javascript">
+<script>
 	var today = new Date() 
 	var year = today.getFullYear()
 	document.write(year)
@@ -379,6 +426,5 @@ Read with Notification of the Govt. of India No. GSR 288(E) dated 31.5.1991. CRN
     })
 });
 </script>
-	
 </body>
 </html>
