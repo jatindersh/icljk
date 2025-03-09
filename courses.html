@@ -87,36 +87,38 @@
             transform: translateY(2px);
         }
     </style>
-  <style>
-        table {
-			background-color: black;
-            width: 98%; /* Set table width to 98% */
-            border-collapse: separate; /* Use separate border model to allow radius */
-            border-spacing: 0; /* Remove spacing between cells */
-            margin-left: auto; /* Center the table */
-            margin-right: auto; /* Center the table */
-            border: 2px solid #6C6A6A;
-			 
-            border-radius: 50px; /* Set border radius to 50px */
+    <style>
+        #slideshow {
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            position: relative;
         }
-        th, td {
-            border: 0px solid #000000; /* Set inside cell border to dark black (1px) */
-            padding: 8px;
-            text-align: center;
-        }
-        th:nth-child(1), td:nth-child(1) {
-            width: 20%;
-        }
-        th:nth-child(2), td:nth-child(2) {
-            width: 60%;
-        }
-        th:nth-child(3), td:nth-child(3) {
-            width: 20%;
-        }
-        th img {
+        #slideshow img {
             width: 100%;
+            height: 100%;
+            position: absolute;
+            display: none;
         }
- </style>
+        #slideshow img.active {
+            display: block;
+        }
+        #next {
+            margin-top: 20px;
+            display: block;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            margin: 20px auto 0 auto;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
   <script>
 <?html
 $useragent=$_SERVER['HTTP_USER_AGENT'];
@@ -228,53 +230,49 @@ Read with Notification of the Govt. of India No. GSR 288(E) dated 31.5.1991. CRN
         </div>
 	</nav>
  <main>
-        	<div class="container">
-			<div class="gradient-btn">Transforming Ideas into Digital Reality!</div>
-			<br>
-			<h1>UNDER CONSTRUCTION</h1>
-			 
-  <table>
-    <tr>
-      <td> </td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td></td>
-      <td></td>
-    </tr>
-     
-    <tr>
-      <td> </td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-       <td colspan="3"> 
-	</td>
-      
-    </tr>   
-  </table>
-  </div>
-   
-        <div class="container">
- <div class="marquee-with-options">
-<img src="images/digital.png" alt="" height="50" width="200">
-<img src="images/EDUCATION.png" alt="" height="50" width="200">
-<img src="images/PRINTING.png" alt="" height="50" width="200">
-<img src="images/software.png" alt="" height="50" width="200">
-<img src="images/website.png" alt="" height="50" width="200">
-<img src="images/TALLY.png" alt="" height="50" width="200">
-<img src="images/PYTHONE.png" alt="" height="50" width="200">
-<img src="images/VS.png" alt="" height="50" width="200">
-<img src="images/DTP.png" alt="" height="50" width="200">
-</div></div>
+         
+   <div id="slideshow">
+        <!-- Add your 25 JPG images here -->
+        <img src="images/courses-page-001.jpg" class="active">
+        <img src="images/courses-page-002.jpg">
+        <img src="images/courses-page-003.jpg">
+        <img src="images/courses-page-004.jpg">
+        <img src="images/courses-page-005.jpg">
+        <img src="images/courses-page-006.jpg">
+        <img src="images/courses-page-007.jpg">
+        <img src="images/courses-page-008.jpg">
+        <img src="images/courses-page-009.jpg">
+        <img src="images/courses-page-010.jpg">
+        <img src="images/courses-page-011.jpg">
+        <img src="images/courses-page-012.jpg">
+        <img src="images/courses-page-013.jpg">
+        <img src="images/courses-page-014.jpg">
+        <img src="images/courses-page-015.jpg">
+        <img src="images/courses-page-016.jpg">
+        <img src="images/courses-page-017.jpg">
+        <img src="images/courses-page-018.jpg">
+        <!-- ... up to image25.jpg -->
+    </div>
+    <a href="#" id="next">Next</a>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll("#slideshow img");
+        const nextButton = document.getElementById("next");
+
+        function showNextImage() {
+            images[currentIndex].classList.remove("active");
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add("active");
+        }
+
+        nextButton.addEventListener("click", function(event) {
+            event.preventDefault();
+            showNextImage();
+        });
+
+        setInterval(showNextImage, 30000); // 30 seconds interval
+    </script>
   </main>
   <footer>
     <p>Copyright @ ICL
@@ -339,7 +337,7 @@ Read with Notification of the Govt. of India No. GSR 288(E) dated 31.5.1991. CRN
     $('.marquee').marquee();
     $('.marquee-with-options').marquee({
         //speed in milliseconds of the marquee
-        speed: 100,
+        speed: 1,
         //gap in pixels between the tickers
         gap: 5,
         //gap in pixels between the tickers
