@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ICL</title>
-   <link rel="icon"  type="image/png"   href="images/JKP.png">
+  <link rel="icon" type="image/png" href="images/JKP.png">
   <script>
     function refreshPage() {
       if (confirm("Are you sure you want to refresh?")) {
@@ -16,14 +16,15 @@
     body {
       display: flex;
       flex-direction: column;
+	  background-color: #070000;
       justify-content: flex-start;
       align-items: flex-start;
       height: 100vh;
       margin: 0;
     }
     header {
-      background-color: #fff;
-      color: black; /* Set text color to black for visibility */
+      background-color: #070000;
+      color: white;
       padding: 5px;
       width: 100%;
       display: flex;
@@ -32,79 +33,99 @@
       align-items: center;
     }
     footer {
-      background-color: #333;
+      background-color:#070000;
       color: white;
-      padding: 5px;
+      padding:1px;
       width: 100%;
       text-align: center;
+	  
     }
-   #pdfWrapper {
-  position: relative;
-  display: flex;
-  justify-content: center; /* Center-aligns the content */
-  align-items: flex-start; /* Align from the top */
-  height: calc(100vh - 120px); /* Adjust for header and footer */
-  overflow-y: auto;
-  width: 100%;
-  margin: 0; /* Removes any margin */
-}
-
-#pdfContainer {
-  width: auto; /* Adjust based on the PDF's width */
-  margin: 2px; /* Removes white margin */
-  padding: 0; /* Removes any padding */
-}
-
+    #pdfWrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: calc(100vh - 120px);
+      overflow-y: auto;
+      width: 100%;
+      margin: 0;
+    }
+    #pdfContainer {
+      width: auto;
+      margin: 2px;
+      padding: 0;
+      border: 2px solid #000; /* Add border */
+      border-radius: 5px; /* Optional: Rounded corners */
+    }
     canvas {
       display: block;
       margin: 0;
-      margin-bottom: 5px; /* Spacing between pages */
+      margin-bottom: 2px;
     }
-    button {
-      padding: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    /* Ensure buttons in the header are aligned properly */
-    header .buttons-container {
+ 
+ header .buttons-container {
       display: flex;
-      justify-content: flex-start; /* Align to the left */
-      gap: 5px;
+      justify-content: flex-start;
+      gap: 2px;s
       align-items: center;
       width: 100%;
     }
     header input[type="button"] {
-      padding: 5px 5px;
-      font-size: 16px;
+      padding: 2px 2px;
+      font-size: 14px;
       cursor: pointer;
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      var message = document.getElementById('message');
+      message.style.display = 'block';
+      setTimeout(function() {
+        message.style.display = 'none';
+      }, 30000); // 30000 milliseconds = 30 seconds
+    };
+  </script>
+  <style>
+    hr {
+      border: none;
+      border-top: 2px solid #000;
+      margin: 10px 0;
+      width: 100%;
     }
   </style>
 </head>
 <body>
   <header>
     <div class="buttons-container">
-      <img src="images/LOGO.png" style="width: 20%;"/>
+      <img src="images/ICL-JAT.png" style="width: 8%;"/>
+       <div class="zoom-buttons">
       <a href="books.html"><input type="button" value="Home"></a>
-      <div class="zoom-buttons">
+    
+      <input type="button" value="Refresh" onclick="refreshPage()"/>
+       
         <button id="zoomIn">Zoom In</button>
         <button id="zoomOut">Zoom Out</button>
       </div>
-      <input type="button" value="Refresh Webpage" onclick="refreshPage()"/>
+      <div id="message">
+        "Wait for a while; the book will be displayed according to its size."
+      </div>
     </div>
-  </header>
-  <hr>
+    
+    </header>
+   <hr>
   <div id="pdfWrapper">
     <div id="pdfContainer"></div>
   </div>
   <footer>
     <p>Copyright @ ICL
     <script language="javascript" type="text/javascript">
-      var today = new Date() 
+      var today = new Date()
       var year = today.getFullYear()
       document.write(year)
     </script>
     </p>
   </footer>
+    
   <script src="js/pdf.min.js"></script>
   <script>
     var url = 'books/Visual_Studio_Code_2.pdf'; // URL of your PDF file
