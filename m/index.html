@@ -88,49 +88,76 @@
             }
         }
     </style>
-    <style>
-	
-
-.myButton {
-	box-shadow:inset 0px 1px 0px 0px black;
-	background:linear-gradient(to bottom, #63b8ee 5%, #468ccf 100%);
-	background-color:black;
-	border-radius: 10px 50px;
-	border:1px solid red;
-	display:inline-block;
-	cursor:pointer;
-	color:white;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #7cacde;
-}
-.myButton:hover {
-	background:linear-gradient(to bottom, #468ccf 5%, #63b8ee 100%);
-	background-color:#468ccf;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-}</style>
+   <style>
+        ul {
+            border-radius: 10px 40px;
+	    	border: 2px solid #Ffff00;
+            margin: 0;
+            padding: 0;
+            width: auto;
+			justify-content: center; /* Center horizontally */
+            align-items: center;    /* Center vertically */
+            text-align: center; 
+             background-color: black;
+			display: inline-block;
+        }
+        li {
+            display: block;
+        }
+        li a {
+            display: block;
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        li a:hover {
+            background-color: #111;
+        }
+        .submenu {
+            display: none;
+            background-color: #444;
+        }
+        .submenu li a {
+            padding: 10px 16px;
+        }
+    </style>
+    <script>
+        function toggleMenu(id) {
+            var submenu = document.getElementById(id);
+            if (submenu.style.display === "block") {
+                submenu.style.display = "none";
+            } else {
+                submenu.style.display = "block";
+            }
+        }
+    </script>
+   
 </head>
 <body>
-    <header><img src="images/ICL-JAT.png" alt="">
-        <h1>Computer Education</h1>
-        <a href="#" class="myButton">Home</a>
-        <ul class="menu">
-            <li><a href="#home" class="button">Home</a></li>
-            <li><a href="#courses" class="button">Courses</a></li>
-            <li><a href="#about" class="button">About</a></li>
-            <li><a href="#contact" class="button">Contact</a></li>
-        </ul>
+    <header>
+        <h1><img src="images/ICL-JAT.png" alt="">Computer Education</h1>
+        
+	    <ul class="menu">
+       <li>
+        <a style="font-size:25px;" href="javascript:void(0);" onclick="toggleMenu('services')"> ➕</a>
+        <ul id="services" class="submenu">
+           <li><a href="dharam.html" class="button">HOME</a></li>     
+          <li><a href="index.html" class="button">Courses</a></li>
+          <li><a href="mirchi.html" class="button">About</a></li>
+          <li><a href="rainbow.html" class="button">Contact</a></li>
+          
+          
+          </ul>
+        </li>
+    </ul>
     </header>
     <main>
+       <hr>
         <h2>Welcome to ICL Computer Education</h2>
         <p>Your destination for quality computer education. Learn from the best and shape your future in the digital world.</p>
+          <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3368.804740208801!2d75.51043231497513!3d32.39759551054183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391c7013c93a85cd%3A0xe7f0646c5989dd0e!2sICL%20Computers!5e0!3m2!1sen!2sin!4v1625658927496!5m2!1sen!2sin" width="450" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe></p>
     </main>
+    <hr> 
     <footer>
         &copy; 2025 ICL Computer Education. All rights reserved.
     </footer>
