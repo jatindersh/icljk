@@ -8,17 +8,23 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
+            color: white;
+            background-color: black;
         }
+        /* Header Styling */
         header {
-            background-color: white;
+            background-color: black;
             padding: 15px 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for visual appeal */
+            box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1); /* Subtle shadow for white text */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             text-align: center;
         }
         header h1 {
             margin: 0;
             font-size: 20px;
-            color: #007BFF; /* ICL brand color */
+            color: white;
         }
         .menu {
             list-style-type: none;
@@ -26,56 +32,107 @@
             margin: 10px 0;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
         }
         .menu li {
-            margin: 0 15px;
+            margin: 5px 10px;
         }
-        .menu a {
-            text-decoration: none;
-            color: #007BFF;
+        .menu .button {
+            display: inline-block;
+            background-color: black;
+			border-radius: 10px 50px;
+            color: white;
             font-weight: bold;
+            padding: 10px 20px;
+            border: 2px solid white;
+            text-align: center;
+            text-decoration: none;
+            transition: 0.3s ease-in-out;
         }
-        .menu a:hover {
-            color: #FFD700; /* Highlight on hover */
+        .menu .button:hover {
+            background-color: white;
+            color: black;
         }
+        /* Main Content */
         main {
             padding: 20px;
             text-align: center;
         }
+        main h2 {
+            color: white;
+        }
+        /* Footer Styling */
         footer {
-            background-color: #007BFF;
+            background-color: black;
             color: white;
             text-align: center;
             padding: 10px;
-            position: fixed;
+            position: relative;
             bottom: 0;
             width: 100%;
         }
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .menu {
+                flex-direction: column;
+                align-items: center;
+            }
+            .menu li {
+                margin: 10px 0;
+            }
+            header h1 {
+                font-size: 18px;
+            }
+            main {
+                padding: 15px;
+            }
+        }
     </style>
+    <style>
+	
+
+.myButton {
+	box-shadow:inset 0px 1px 0px 0px black;
+	background:linear-gradient(to bottom, #63b8ee 5%, #468ccf 100%);
+	background-color:black;
+	border-radius: 10px 50px;
+	border:1px solid red;
+	display:inline-block;
+	cursor:pointer;
+	color:white;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #7cacde;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #468ccf 5%, #63b8ee 100%);
+	background-color:#468ccf;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}</style>
 </head>
 <body>
-    <header>
-       	<img src="../../icl/m/images/LOGO.png" alt="" width="200">
-        <h1>ICL Computer Education</h1>
+    <header><img src="images/ICL-JAT.png" alt="">
+        <h1>Computer Education</h1>
+        <a href="#" class="myButton">Home</a>
         <ul class="menu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#home" class="button">Home</a></li>
+            <li><a href="#courses" class="button">Courses</a></li>
+            <li><a href="#about" class="button">About</a></li>
+            <li><a href="#contact" class="button">Contact</a></li>
         </ul>
     </header>
     <main>
-        <h2>Welcome </h2>
-        <p>Empowering students with the knowledge and skills for a digital future.</p>
-         <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3368.804740208801!2d75.51043231497513!3d32.39759551054183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391c7013c93a85cd%3A0xe7f0646c5989dd0e!2sICL%20Computers!5e0!3m2!1sen!2sin!4v1625658927496!5m2!1sen!2sin" width="450" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe></p>
+        <h2>Welcome to ICL Computer Education</h2>
+        <p>Your destination for quality computer education. Learn from the best and shape your future in the digital world.</p>
     </main>
     <footer>
-        <p>Copyright @ ICL
-<script>
-	var today = new Date() 
-	var year = today.getFullYear()
-	document.write(year)
-</script> All rights reserved</p>
+        &copy; 2025 ICL Computer Education. All rights reserved.
     </footer>
 </body>
 </html>
