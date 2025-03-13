@@ -3,136 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>ICL Computer Education</title>
-   
- 
-   <style>
+    <title>ICL Computer Education</title>
+    <style>
         body {
             margin: 0;
-            padding: 0;
-            box-sizing: border-box;
             font-family: Arial, sans-serif;
+            color: white;
+            background-color: black;
         }
-
-        header, nav, main, footer {
-			margin-top: 0;
-            padding: 0px;
+        /* Header Styling */
+        header {
+            background-color: black;
+            padding: 15px 20px;
+            box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1); /* Subtle shadow for white text */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             text-align: center;
         }
-
-        header {
-            background-color: white;
+        header h1 {
+            margin: 0;
+            font-size: 20px;
             color: white;
+			border-radius: 10px 30px;
+	    	border: 2px solid #Ffff00;
+            margin: 0;
+            padding: 5px;
+            width: auto;
+			justify-content: center; /* Center horizontally */
+            align-items: center;    /* Center vertically */
+            text-align: center; 
+             background-color: black;
+			display: inline-block;
         }
-
-        nav {
-            background-color: #333;
-            color: white;
+        .menu {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
-
-        nav a {
+        .menu li {
+            margin: 5px 10px;
+        }
+        .menu .button {
+            display: inline-block;
+            background-color: black;
+			border-radius: 10px 50px;
             color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: 2px solid white;
+            text-align: center;
             text-decoration: none;
-            margin: 0 15px;
+            transition: 0.3s ease-in-out;
         }
-
-        main {
-            background-color: #f9f9f9;
-            padding: 20px;
-        }
-
-        footer {
+        .menu .button:hover {
             background-color: white;
             color: black;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        @media (max-width: 768px) {
-            nav a {
-                display: block;
-                margin: 10px 0;
-            }
-
-            header, nav, main, footer {
-                padding: 10px;
-            }
-        }
-	    .button {
-            padding: 15px 30px;
-            font-size: 14px;
-            color: white;
-            background-color: black;
-            border: 2px solid red;
-            border-radius: 30px; /* Rounded
-			corners */
-			text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .button:hover {
-            background-color: white /* Darker black */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .button:active {
-            background-color: #1a1a1a; /* Slightly lighter black */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transform: translateY(2px);
-        }
-	    .booksbutton {
-            padding: 10px 20px;
-            font-size: 14px;
-            color: white;
-            background-color: black;
-            border: 2px solid red;
-            border-radius: 30px; /* Rounded
-			corners */
-			text-decoration: none;
-        }
-    </style>
-  <style>
-        table {
-			background-color: purple;
-            width: 98%; /* Set table width to 98% */
-            border-collapse: separate; /* Use separate border model to allow radius */
-            border-spacing: 0; /* Remove spacing between cells */
-            margin-left: auto; /* Center the table */
-            margin-right: auto; /* Center the table */
-            border: 2px solid #6C6A6A;
-			 
-            border-radius: 50px; /* Set border radius to 50px */
-        }
-        th, td {
-            border: 0px solid #000000; /* Set inside cell border to dark black (1px) */
-            padding: 1px;
+        /* Main Content */
+        main {
+            padding: 20px;
             text-align: center;
         }
-        th:nth-child(1), td:nth-child(1) {
-            width: 25%;
+        main h2 {
+            color: white;
         }
-        th:nth-child(2), td:nth-child(2) {
-            width: 25%;
-        }
-        th:nth-child(3), td:nth-child(3) {
-            width: 25%;
-        }
-	   th:nth-child(4), td:nth-child(3) {
-            width: 25%;
-        }
-        th img {
+        /* Footer Styling */
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
             width: 100%;
         }
- </style>
- 
-    
-
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .menu {
+                flex-direction: column;
+                align-items: center;
+            }
+            .menu li {
+                margin: 10px 0;
+            }
+            header h1 {
+                font-size: 18px;
+            }
+            main {
+                padding: 15px;
+            }
+        }
+    </style>
+   <style>
+        ul {
+            border-radius:10px 40px;
+	    	border: 0px solid #Ffff00;
+            margin: 0;
+            padding: 0;
+            width: 200;
+			background-color: gray;
+			justify-content: center; /* Center horizontally */
+            align-items: center;    /* Center vertically */
+            text-align: center; 
+             background-color: black;
+			display: inline-block;
+        }
+        li {
+            display: block;
+        }
+        li a {
+            display: block;
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        li a:hover {
+            background-color: #111;
+        }
+        .submenu {
+            display: none;
+            background-color: #444;
+        }
+        .submenu li a {
+            padding: 10px 16px;
+        }
+    </style>
+    <script>
+        function toggleMenu(id) {
+            var submenu = document.getElementById(id);
+            if (submenu.style.display === "block") {
+                submenu.style.display = "none";
+            } else {
+                submenu.style.display = "block";
+            }
+        }
+    </script>
      <style>
       
    .gradient-btn {
@@ -175,107 +184,164 @@
             pointer-events: none; /* Disable click */
         }
     </style>
+     <style>
+        table {
+			background-color: purple;
+            width: 98%; /* Set table width to 98% */
+            border-collapse: separate; /* Use separate border model to allow radius */
+            border-spacing: 0; /* Remove spacing between cells */
+            margin-left: auto; /* Center the table */
+            margin-right: auto; /* Center the table */
+            border: 2px solid #6C6A6A;
+			 
+            border-radius: 50px; /* Set border radius to 50px */
+        }
+        th, td {
+            border: 0px solid #000000; /* Set inside cell border to dark black (1px) */
+            padding: 1px;
+            text-align: center;
+        }
+        th:nth-child(1), td:nth-child(1) {
+            width: 25%;
+        }
+        th:nth-child(2), td:nth-child(2) {
+            width: 25%;
+        }
+        th:nth-child(3), td:nth-child(3) {
+            width: 25%;
+        }
+	   th:nth-child(4), td:nth-child(3) {
+            width: 25%;
+        }
+        th img {
+            width: 100%;
+        }
+		   .booksbutton {
+            padding: 10px 20px;
+            font-size: 14px;
+            color: white;
+            background-color: black;
+            border: 2px solid red;
+            border-radius: 30px; /* Rounded
+			corners */
+			text-decoration: none;
+			width: 300px; /* Fixed width */
+		 }
+ </style>
+ 
+    
 </head>
 <body>
-<header>
-<div class="container">
-     
-   	<img src="images/LOGO.png" alt="" width="200">
-	 
- 
+    <header>
+        <h1><img src="images/ICL-JAT.png" alt="">Computer Education</h1>
+        
+	    <ul class="menu">
+       <li>
+        <a style="font-size:25px;" href="javascript:void(0);" onclick="toggleMenu('services')"> ➕</a>
+        <ul id="services" class="submenu">
+           <li><a href="home.html" class="button">HOME</a></li>  
+           <li><a href="about.html" class="button">About</a></li>   
+          <li><a href="courses.html" class="button">Courses</a></li>
+        <li><a href="contact.html" class="button">Contact</a></li>
+                  
+          </ul>
+        </li>
+    </ul>
     </header>
-    <hr class="styled-hr">
-    <nav>
-        <div class="container">
-          
-        <a href="index.html" class="button">Home</a>
-        <a href="about.html" class="button">About</a>
-        <a href="courses.html" class="button">Courses</a>
-			<a href="contact.html" class="button">Contact</a>
-        </div>
-	</nav>
- <main>
+    <main>
+       <hr>
+        <h2>Welcome to ICL Computer Education</h2>
+        <p>Your destination for quality computer education. Learn from the best and shape your future in the digital world.</p>
+         
         <div class="container">
 			<div class="gradient-btn">Transforming Ideas into Digital Reality!</div><br>
 			<hr>
 			 
   <table>
+  <tr><td><br></td></tr>
 <tr>
 <td>
 <a href="fundamentals.html" class="booksbutton">Fundamentals</a>  
-</td>
+	</td></tr>
+	<tr><td><br></td></tr>
+<tr>
 <td>   
 <a href="msoffice.html" class="booksbutton">
  Microsoft Office </a>  
-</td>
+</td></tr>
+<tr><td><br></td></tr>
+<tr>
 <td>
 <a href="vs.html" class="booksbutton">
 Visual Studio</a> 
-</td>
+	</td></tr>
+	<tr><td><br></td></tr>
+	<tr>
 <td>
 <a href="VisualStudioCode.html" class="booksbutton">
 Visual Studio Code</a> 
 </td>
 </tr>
+<tr><td><br></td></tr>
 </table>
-  <br>
- <hr>
+ 
  <br> 
  <table>
+ <tr><td><br></td></tr>
 <tr>
 <td>
 <a href="Web Programming - ASP.NET.html" class="booksbutton">Web-Prog.-ASP.NET</a>  
-</td>
+	</td></tr>
+	<tr><td><br></td></tr>
+	<tr>
 <td>   
 <a href="JavaandEclipse.html" class="booksbutton">
  Java and Eclipse</a>  
-</td>
+</td></tr><tr><td><br></td></tr>
+<tr>
 <td>
 <a href="modern-cpp-tutorial.html" class="booksbutton">
 Modern-cpp-Tutorial</a> 
-</td>
+</td></tr><tr><td><br></td></tr>
+<tr>
 <td>
 <a href="Visual_Studio_Code_2.html" class="booksbutton">
 Visual_Studio_Code_2</a> 
-</td>
-</tr>
+</td></tr><tr><td><br></td></tr>
+ 
 </table> 
   <br>
  <hr>
  <br> 
  <table>
+ <tr><td><br></td></tr>
 <tr>
 <td>
 <a href="learning-python.html" class="booksbutton">Learning-Python</a>  
-</td>
+</td></tr><tr><td><br></td></tr>
+<tr>
 <td>   
 <a href="HTML_PHP_SQL.html" class="booksbutton">
  HTML5_PHP_SQL</a>  
-</td>
+</td></tr><tr><td><br></td></tr>
+<tr>
 <td>
 <a href="Tally.ERP 9 at a Glance.html" class="booksbutton">
 Tally.ERP 9 at a Glance</a> 
-</td>
+</td></tr><tr><td><br></td></tr>
+<tr>
 <td>
 <a href="TALLY_BOOK.html" class="booksbutton">
 TALLY_BOOK</a> 
-</td>
-</tr>
+</td></tr><tr><td><br></td></tr>
+ 
 </table>
   </div>
     </main>
 
-    
-     
- <footer> 
-    <p>Copyright @ ICL
-<script>
-	var today = new Date() 
-	var year = today.getFullYear()
-	document.write(year)
-</script></p>
-</footer>
-        </div>
-
+    <hr> 
+    <footer>
+        &copy; 2025 ICL Computer Education. All rights reserved.
+    </footer>
 </body>
 </html>
