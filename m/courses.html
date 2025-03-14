@@ -157,19 +157,24 @@
       
    .gradient-btn {
     display: inline-block;
+	height: 20px; 
+	width: 200px;
+    /* Other existing styles */
     text-decoration: none;
     text-align: center;
     background: linear-gradient(45deg, black,red, maroon);
     background-size: 300% 300%;
-    color: white; /* Ashoka Chakra color */
-    padding: 12px 24px;
-    font-size: 16px;
+    color: black; 
+    padding-top: 0px;
+	padding-bottom: 30px;
+	 
+    font-size: 12px;
     font-weight: bold;
-    border-radius:50px;
+    border-radius: 10px 40px;
     cursor: pointer;
     transition: all 0.4s ease-in-out;
     text-transform: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     animation: gradientMove 5s infinite alternate;
     border: 2px solid yellow; /* Optional: Ashoka Chakra border */
 }
@@ -177,7 +182,7 @@
 @keyframes gradientMove {
     0% { background-position: 0% 50%; }
     100% { background-position: 100% 50%; }
-}
+		 }
 
 .gradient-btn:hover {
     transform: scale(1.05);

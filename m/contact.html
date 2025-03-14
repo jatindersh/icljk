@@ -151,7 +151,53 @@
             }
         }
     </script>
-   
+     <style>
+      
+   .gradient-btn {
+    display: inline-block;
+	height: 20px; 
+	width: 200px;
+    /* Other existing styles */
+    text-decoration: none;
+    text-align: center;
+    background: linear-gradient(45deg, black,red, maroon);
+    background-size: 300% 300%;
+    color: black; 
+    padding-top: 0px;
+	padding-bottom: 30px;
+	 
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 10px 40px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    text-transform: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: gradientMove 5s infinite alternate;
+    border: 2px solid yellow; /* Optional: Ashoka Chakra border */
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+		 }
+
+.gradient-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+		  .links {
+            margin-bottom: 20px;
+        }
+		 .content {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+		   .no-print-download {
+            pointer-events: none; /* Disable click */
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -173,7 +219,7 @@
     </header>
     <main>
       
-        <h2>Welcome to ICL</h2>
+         <div class="gradient-btn"><h2>Welcome to ICL</h2></div><br>
         <p>Your destination for quality computer education. Learn from the best and shape your future in the digital world.</p>
         <p class="justified-box">We’d love to hear from you! At ICL Computer Institute, we are always here to assist you with any inquiries regarding our courses, admissions, or services. Whether you have questions, need guidance, or want to collaborate, feel free to reach out to us. You can visit our institute, call us, or drop us an email, and our dedicated team will be happy to help. Your success is our priority, and we are committed to providing you with the best support. Get in touch with us today and take the first step towards a brighter future!""Finding us is easy! To make your visit more convenient, we have integrated Google Maps right here on our website. Simply explore the map below to get directions to ICL Computer Institute with just a click. Whether you're traveling by car, bike, or public transport, Google Maps will guide you to our exact location. We look forward to welcoming you!" You can zoom in for a closer view or switch to satellite mode for better navigation. We look forward to welcoming you and assisting you on your journey to success!"</p>
         <div></div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3368.804740208801!2d75.51043231497513!3d32.39759551054183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391c7013c93a85cd%3A0xe7f0646c5989dd0e!2sICL%20Computers!5e0!3m2!1sen!2sin!4v1625658927496!5m2!1sen!2sin" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe><div></div>
